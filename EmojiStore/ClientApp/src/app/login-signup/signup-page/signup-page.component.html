@@ -1,0 +1,68 @@
+<div class="col-12 mx-auto" dir="{{ 'LOGIN.DIR' | translate }}">
+    <label for="langSelect" class="mr-1">   <img class="icon-size"  [src]="imgSelect">{{ 'HEADER.SELECT' | translate }}</label>
+    <select class="minimal" #langSelect (change)="changeLang(langSelect.value)">
+<option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+</select>
+</div>
+<div class="container-fluid" dir="{{ 'LOGIN.DIR' | translate }}">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-3">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ 'SIGN-UP.INFO-1' | translate }} </h5>
+                    <div class="text-danger" id="error" style="display: none;">{{ 'SIGN-UP.INFO-24' | translate }}</div>
+                    <form [formGroup]="registerUser">
+
+                        <div class="form-group mt-3" dir="{{ 'LOGIN.DIR' | translate }}">
+                            <label for="inputUserame">{{ 'SIGN-UP.INFO-2' | translate }}</label>
+                            <input type="text" id="inputUserame" class="form-control" formControlName="firstName" placeholder="{{ 'SIGN-UP.INFO-3' | translate }} " required maxlength="15" autofocus>
+                            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-4' | translate }}</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="inputUserame">{{ 'SIGN-UP.INFO-5' | translate }}</label>
+                            <input type="text" id="inputUserame2" class="form-control" formControlName="lastName" placeholder="{{ 'SIGN-UP.INFO-6' | translate }}" required maxlength="15">
+                            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-7' | translate }}</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="Email">{{ 'SIGN-UP.INFO-8' | translate }}</label>
+                            <input type="email" id="Email" class="form-control" placeholder="{{ 'SIGN-UP.INFO-9' | translate }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="inputPassword">{{ 'SIGN-UP.INFO-10' | translate }}</label>
+                            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="{{ 'SIGN-UP.INFO-11' | translate }}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-12' | translate }}</div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="inputConfirmPassword">{{ 'SIGN-UP.INFO-13' | translate }}</label>
+                            <input type="password" id="inputConfirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-invalid':registerUser.get('confirmPassword').errors &&registerUser.get('confirmPassword').touched}" placeholder="{{ 'SIGN-UP.INFO-14' | translate }}"
+                                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                            <div class="invalid-feedback" *ngIf="registerUser.get('confirmPassword').hasError('passwordMismatch')">{{ 'SIGN-UP.INFO-15' | translate }}</div>
+
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="inputPhone">{{ 'SIGN-UP.INFO-16' | translate }}</label>
+                            <input type="number" id="inputPhone" class="form-control" formControlName="phone" placeholder="{{ 'SIGN-UP.INFO-17' | translate }}" maxlength="20" required>
+                            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-18' | translate }}</div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="Address">{{ 'SIGN-UP.INFO-19' | translate }}</label>
+                            <textarea type="textarea" id="Address" class="form-control" placeholder="{{ 'SIGN-UP.INFO-20' | translate }}" resize rows="5"></textarea>
+
+                        </div>
+                        <button class="btn btn-lg btn-register btn-block text-uppercase mt-3" id="submit" [disabled]="registerUser.invalid" (click)="RegisterUser()" type="submit">{{ 'SIGN-UP.INFO-21' | translate }}</button>
+                        <a class="d-block text-center mt-2 small link" routerLink='/Registration/Login'>{{ 'SIGN-UP.INFO-22' | translate }}</a>
+                    </form>
+                    <a class="d-block text-right mt-5 mr-2 small link" routerLink='/Home'><i class='bx bx-fw bx-home'></i>{{ 'SIGN-UP.INFO-23' | translate }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<footer class="new_footer_area bg_color ">
+    <div class="new_footer_top toArabic ">
+        <div class="container-fluid  pl-md-5 ">
+            <div class="row">
+                <div class=" col-lg-3 col-md-6 mb-5 d-none d-sm-block ">
+                    <div class="f_widget company_widget">
+                        <h3 class="f-title f_600 t_color f_size_18">{{ 'HOME-FOOT.INFO-1' | translate }}</h3>
+                        <p>{{ 'HOME-FOOT.INFO-2' | translate }}</p>
+                        <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                            <input type="text" name="EMAIL" class="form-control memail" placeholder="{{ 'HOME-FOOT.INFO-3' | translate }}" id="email" [(ngModel)]='email' required="required">
+                            <a type="button" herf="" (click)="sendMail()" id="youGotMail" class="btn btn_get btn_get_two" type="submit">{{ 'HOME-FOOT.INFO-4' | translate }}</a>
+                            <p class="mchimp-errmessage" style="display: none;"></p>
+                            <p class="mchimp-sucmessage" style="display: none;"></p>
+
+                        </form>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-6 mb-5 d-none d-sm-block">
+                    <div class="f_widget about-widget pl_70 ">
+                        <h3 class="f-title f_600 t_color f_size_18">{{ 'HOME-FOOT.INFO-5' | translate }}</h3>
+                        <ul class="list-unstyled f_list toArabic2">
+                            <li><a routerLink="/Home" routerLinkActive="active">{{ 'HOME-FOOT.INFO-6' | translate }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-6 mb-5 ">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">{{ 'HOME-FOOT.INFO-7' | translate }}</h3>
+                        <ul class="list-unstyled f_list toArabic2">
+                            <li><a routerLink="/Home/ProductList/21">
+                  {{ 'HOME-FOOT.INFO-8' | translate }}
+                </a></li>
+                            <li><a routerLink="/Home/ProductList/19">
+                  {{ 'HOME-FOOT.INFO-9' | translate }}
+                </a></li>
+                            <li>
+                                <li><a routerLink="/Home/ProductList/20">
+                  {{ 'HOME-FOOT.INFO-10' | translate }}
+                </a></li>
+                                <li>
+                                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  {{ 'HOME-FOOT.INFO-11' | translate }} </a>
+                                    <ul class="collapse list-unstyled toArabic2" id="pageSubmenu">
+                                        <li *ngFor="let categoryList of categoriesWithTheReset">
+                                            <a [routerLink]="['/Home/ProductList', categoryList.categoryId]">{{ categoryList.categoryName }}</a>
+                                        </li>
+                                        <!-- <li>
+                                        <a href="#">{{ 'HOME-FOOT.INFO-13' | translate }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">{{ 'HOME-FOOT.INFO-14' | translate }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">{{ 'HOME-FOOT.INFO-15' | translate }}</a>
+                                    </li> -->
+                                    </ul>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-6 mb-5">
+                    <div class="f_widget about-widget pl_70">
+                        <h3 class="f-title f_600 t_color f_size_18">{{ 'HOME-FOOT.INFO-16' | translate }}</h3>
+                        <ul class="list-unstyled  toArabic2">
+                            <li>
+                                <a href="https://www.facebook.com/emoji.dm/" target="_blank"><img src="../../assets/img/1f.svg" alt="" class="icon-size"></a>
+                                <a href="https://wa.me/+201067726283?text=I'm%20interested%20can%20you%20help%20me%20to%20buy%20this%20Product" target="_blank"><img src="../../assets/img/4w.svg" alt="" class="icon-size"></a>
+                                <a href="https://www.instagram.com/emoji_store.dm/?fbclid=IwAR1JQHEnTFMfSL4CahL2nYIm9EsIUegeEoEe7m_LjgFWKXGzCFExLzIdo6g" target="_blank"><img src="../../assets/img/3i.svg" alt="" class="icon-size"></a>
+                                <a href="https://www.youtube.com/channel/UCdd4BZmrLdcRMRuFICjAbGw/featured" target="_blank"><img src="../../assets/img/2y.svg" alt="" class="icon-size"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom ">
+        <div class="container-fluid pl-md-5 pr-md-5">
+            <div class="row align-items-center">
+                <div class="col-12 text-center ">
+                  <a style="text-decoration: none" href="https://www.facebook.com/riodaana">
+                    <p class="mb-0 f_400">{{ 'HOME-FOOT.INFO-17' | translate }} </p>
+                  </a>
+                </div>
+                <!-- <div class="col-lg-6 col-sm-5 text-right ">
+                    <p class="mb-0 f_400">{{ 'HOME-FOOT.INFO-18' | translate }}
+                        <a href="#"><img src="../../assets/img/5v.svg" alt="" class="icon-size"></a>
+                        <a href="#"><img src="../../assets/img/6m.svg" alt="" class="icon-size"></a>
+                    </p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</footer>

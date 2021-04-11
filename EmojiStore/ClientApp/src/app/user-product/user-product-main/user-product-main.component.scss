@@ -1,0 +1,521 @@
+@import "../../app.component.scss";
+h3 {
+    font-weight: 600;
+    color: $black;
+    font-size: 32px;
+}
+
+.price {
+    font-weight: 600;
+    color: darken($color: $yellow, $amount: 9);
+    font-size: 28px;
+}
+
+.offer {
+    font-weight: 600;
+    color: darken($color: $grey, $amount: 25);
+    font-size: 20px;
+}
+
+.size {
+    font-size: 20px;
+    font-weight: 600;
+    color: $black;
+}
+
+.size-chart,
+.wash-clothes {
+    color: $black;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.wash-clothes {
+    text-decoration: underline;
+}
+
+.the-size-box {
+    display: table-cell;
+    outline: 1.5px solid $black;
+    padding: 8px 20px;
+    color: $black;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#checkboxes input[type=radio] {
+    display: none;
+}
+
+#checkboxes input[type=radio]:checked+.the-size-box {
+    outline: 1.5px solid darken($color: $yellow, $amount: 15);
+    color: darken($color: $yellow, $amount: 15);
+}
+
+.the-size-box:focus {
+    outline: 1.2px solid darken($color: $yellow, $amount: 25);
+}
+
+.size-block {
+    display: table;
+}
+
+.cart {
+    background-color: $black;
+    color: $white;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 0px;
+    padding: 12px 88px;
+}
+
+// .heart {
+//     background-color: lighten($color: $black, $amount: 5);
+//     color: $white;
+//     font-weight: 400;
+//     font-size: 16px;
+//     border-radius: 0px;
+//     padding: 12px 12px;
+// }
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba($black, 0.25);
+}
+
+.accordion .card-header {
+    background-color: $white;
+    color: $black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid $black;
+    cursor: pointer;
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $white;
+    color: $black;
+    border: 0px;
+}
+
+.accordion .card-header:after {
+    font-weight: 800;
+    font-size: 22px;
+    content: "-";
+    float: right;
+}
+
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "+";
+}
+
+@media (min-width: 2560px) {
+    h3 {
+        font-size: 38px;
+    }
+    .price {
+        font-size: 30px;
+    }
+    .offer {
+        font-size: 26px;
+    }
+    .size {
+        font-size: 24px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 20px;
+    }
+    .the-size-box {
+        padding: 10px 60px;
+        font-size: 24px;
+    }
+    .cart {
+        font-size: 26px;
+        padding: 20px 120px;
+    }
+    .card-title {
+        font-size: 22px;
+    }
+    .accordion .card-header:after {
+        font-size: 22px;
+    }
+}
+
+//modal styling is here
+.end,
+.the-content {
+    background-color: transparent;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+}
+
+.the-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // left: -10%;
+    // right: 50%;
+    // margin-left: -150px;
+    margin-top: 350px;
+}
+
+.modal-img {
+    width: 800px;
+    height: 400px;
+    background: repeat;
+}
+
+.modal-title {
+    color: darken($color: $yellow, $amount: 25);
+    background-color: $white;
+}
+
+.modal-body {
+    color: $black;
+    background-color: $white;
+}
+
+.end-btn {
+    border-radius: 0px;
+    color: $white;
+    background-color: $black;
+}
+
+//wash clothes modal
+@media (max-width: 1024px) {
+    h3 {
+        font-size: 28px;
+    }
+    .price {
+        font-size: 24px;
+    }
+    .offer {
+        font-size: 20px;
+    }
+    .size {
+        font-size: 18px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 16px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 16px;
+    }
+    .cart {
+        font-size: 18px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 786px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 14px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 720px;
+        height: 330px;
+    }
+    .modal-img {
+        width: 720px;
+        height: 330px;
+    }
+}
+
+@media (max-width: 540px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 14px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 500px;
+        height: 230px;
+    }
+    .modal-img {
+        width: 500px;
+        height: 230px;
+    }
+}
+
+@media (max-width: 414px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 14px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 380px;
+        height: 175px;
+    }
+    .modal-img {
+        width: 380px;
+        height: 175px;
+    }
+}
+
+@media (max-width: 375px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 14px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 360px;
+        height: 160px;
+    }
+    .modal-img {
+        width: 360px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 360px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 14px;
+        padding: 12px 84px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 340px;
+        height: 150px;
+    }
+    .modal-img {
+        width: 340px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 320px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 12px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+    .cart {
+        font-size: 12px;
+        padding: 12px 72px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 300px;
+        height: 140px;
+    }
+    .modal-img {
+        width: 300px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 280px) {
+    h3 {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 20px;
+    }
+    .offer {
+        font-size: 16px;
+    }
+    .size {
+        font-size: 14px;
+    }
+    .size-chart,
+    .wash-clothes {
+        font-size: 11px;
+    }
+    .the-size-box {
+        padding: 6px 6px;
+        font-size: 10px;
+    }
+    .cart {
+        font-size: 12px;
+        padding: 10px 50px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .accordion .card-header:after {
+        font-size: 18px;
+    }
+    .the-content {
+        width: 260px;
+        height: 120px;
+    }
+    .modal-img {
+        width: 260px;
+        height: 120px;
+    }
+}
+
+.makeItRight {
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.makeItRight4 {
+    font-family: Cairo !important;
+}

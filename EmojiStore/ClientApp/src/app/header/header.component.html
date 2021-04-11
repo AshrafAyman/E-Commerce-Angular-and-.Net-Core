@@ -1,0 +1,181 @@
+<div class="overlay"></div>
+<!-- the top header -->
+<div class="utility-nav ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 d-none d-md-block">
+                <p class="small"><span><i class="bx-fw bx bx-mail-send bx-xs  a-color"></i> <a href="#"
+              class="text-decoration-none"> Emojistore18@gmail.com </a></span> <span style="color: black;">|</span>
+                    <span><i class="bx-fw bx bx-phone-call bx-xs a-color"></i><a href="#" class="text-decoration-none">
+              +201067726283 </a> </span><span style="color: black;"> |</span>
+                    <span><i class="bx-fw bx bx-store bx-xs a-color"></i><a href="#" class="text-decoration-none"> EGY </a></span>
+
+                </p>
+            </div>
+
+            <div class="col-12 col-md-6 text-right">
+
+                <label for="langSelect" class="mr-1"> <img class="icon-size" [src]="imgSelect">{{ 'HEADER.SELECT' | translate
+          }}</label>
+                <select class="minimal" #langSelect (change)="changeLang(langSelect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
+            {{ lang }}</option>
+        </select>
+
+                <span class=" d-block  d-sm-none float-left mr-2 icon-size2 "><a placement="right"
+            ngbTooltip="Emojistore18@gmail.com" class="a-color"> <i class="bx-fw bx bx-mail-send bx-flashing-hover"></i>
+          </a></span>
+                <span class=" d-block  d-sm-none float-left mr-2 icon-size2 "><a placement="bottom" ngbTooltip="201067726283"
+            class="a-color"> <i class="bx-fw bx bx-phone-call bx-flashing-hover"></i> </a></span>
+                <span class=" d-block  d-sm-none float-left mr-2 icon-size2 "><a placement="bottom" ngbTooltip="EGY"
+            class="a-color"> <i class="bx-fw bx bx-store bx-flashing-hover"></i> </a></span>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- the top header end -->
+<!-- the nav header -->
+<nav class="navbar navbar-expand-md navbar-light bg-light main-menu" id="elId2" style="box-shadow:none">
+    <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-link d-block d-md-none">
+      <i class="bx bx-menu icon-single"></i>
+    </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/img/12logo.svg " alt="" class="logo-size mt-lg-3 ">
+        </a>
+
+        <ul class="navbar-nav ml-auto d-block d-md-none">
+            <li class="nav-item float-right">
+                <a class="btn btn-link" routerLink="/Home/ShoppingCart" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-16' | translate }}">
+                    <i class="bx bx-cart-alt bx-tada-hover icon-single bx-sm"></i>
+                    <span class="badge badge-danger badgeSpan" name="selectedMessage">{{selectedMessage}}</span></a>
+            </li>
+            <li id="shoppingSmall" class="nav-item float-right" style="display: none;">
+                <a class="btn btn-link" routerLink="/User/MyOrder" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-14' | translate }}">
+                    <i class="bx bx-shopping-bag bx-tada-hover icon-single bx-sm"></i></a>
+            </li>
+            <li id="adminRollSmall" class="nav-item float-right" style="display: none;">
+                <a class="btn btn-link" routerLink="/Admin/OverView" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-15' | translate }}">
+                    <i class="bx bxs-user-circle bx-tada-hover icon-single bx-sm"></i></a>
+            </li>
+        </ul>
+
+        <div class="collapse navbar-collapse">
+            <form class="form-inline my-2 my-lg-0 mx-auto toArabic">
+                <input [(ngModel)]="searchText" name="searchText" id="searchText" class="form-control" type="search" placeholder="{{ 'HOME-HEAD.INFO-1' | translate }}" aria-label="Search">
+                <button class="btn btn-search my-2 my-sm-0" (click)="search()" type="submit"><i
+            class="bx bx-search icon-single bx-sm"></i></button>
+            </form>
+
+            <ul class="navbar-nav extrascreen">
+                <li id="shoppingBig" class="nav-item toArabic" style="display: none;">
+                    <a class="btn btn-link" routerLink="/User/MyOrder" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-14' | translate }}">
+                        <i class="bx bx-shopping-bag bx-tada-hover icon-single bx-sm"></i></a>
+                </li>
+                <li id="adminRollBig" class="nav-item toArabic" style="display: none;">
+                    <a class="btn btn-link" routerLink="/Admin/OverView" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-15' | translate }}">
+                        <i class="bx bxs-user-circle bx-tada-hover icon-single bx-sm"></i></a>
+                </li>
+                <li class="nav-item toArabic">
+                    <a class="btn btn-link" routerLink="/Home/ShoppingCart" placement="bottom" ngbTooltip="{{ 'HOME-HEAD.INFO-16' | translate }}">
+                        <i class="bx bx-cart-alt bx-tada-hover icon-single bx-sm"></i>
+                        <span class="badge badge-danger badgeSpan" name="selectedMessage">{{selectedMessage}}</span></a>
+                </li>
+
+                <li id="registerationBig" class="nav-item ml-md-3 toArabic">
+                    <a class="btn btn-login2" routerLink="/Registration/Login"><i class="bx bx-user-circle bx-sm mr-1"></i>{{
+            'HOME-HEAD.INFO-2' | translate }}</a>
+                </li>
+                <li id="LogOutBig" class="nav-item ml-md-3 toArabic" style="display: none;">
+                    <a (click)="LogOut()" class="btn btn-login2 toArabic"><i class="bx bx-user-circle bx-sm mr-1"></i>{{
+            'HOME-HEAD.INFO-13' | translate }} </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- the nav header -->
+
+<nav class="navbar navbar-expand-md navbar-light bg-light sub-menu" id="elId2">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mx-auto toArabic">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/Home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{
+            'HOME-HEAD.INFO-3' | translate }} </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/Home/ProductList/21" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'HOME-HEAD.INFO-4' | translate }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/Home/ProductList/19" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'HOME-HEAD.INFO-5' | translate }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/Home/ProductList/20" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'HOME-HEAD.INFO-6' | translate }}</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ 'HOME-HEAD.INFO-7' | translate }}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item nav-link3" *ngFor="let categoryList of categoriesWithTheReset" [routerLink]="['/Home/ProductList', categoryList.categoryId]">{{
+              categoryList.categoryName }}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="search-bar d-block d-md-none">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 bg-color">
+                <form class="form-inline mb-3 mt-2 mx-auto toArabic ">
+                    <input class="form-control" type="search" placeholder="{{ 'HOME-HEAD.INFO-1' | translate }}" aria-label="Search">
+                    <button class="btn btn-search" type="submit"><i class="bx bx-search icon-single bx-sm"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header toArabic">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-10 pl-0">
+                    <a id="registeration" class="btn btn-darkred btn_get_two" routerLink="/Registration/Login"><i
+              class="bx bx-user-circle mr-1 "></i>{{ 'HOME-HEAD.INFO-2' | translate }}</a>
+                    <a id="logOut" (click)="LogOut()" class="btn btn-darkred btn_get_two" style="display: none;"><i
+              class="bx bx-user-circle mr-1 "></i>{{ 'HOME-HEAD.INFO-13' | translate }}</a>
+                </div>
+
+                <div class="col-2 text-left toArabic">
+                    <button type="button" class="btn btn-link sidebarCollapseX">
+            <i class="bx bx-x icon-single btn-close"></i>
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h6 class="text-uppercase mb-1 mt-3 head-style toArabic">{{ 'HOME-HEAD.INFO-12' | translate }}</h6>
+    <ul class="list-unstyled components mb-3 toArabic">
+        <li class="sidebarCollapseX " *ngFor="let categoryList of allCategoris">
+            <a (click)="CloseTheSidePar()" [routerLink]="['/Home/ProductList', categoryList.categoryId]"> <i class="bx bx-shopping-bag mr-3 "></i>{{ categoryList.categoryName }}</a>
+        </li>
+
+    </ul>
+    <ul class="list-unstyled components links toArabic">
+        <li class="active">
+            <a class="sidebarCollapseX" routerLink="/Home" routerLinkActive="active"><i class="bx bx-home mr-3 "></i>{{ 'HOME-HEAD.INFO-3' | translate
+        }}</a>
+        </li>
+
+
+    </ul>
+</nav>

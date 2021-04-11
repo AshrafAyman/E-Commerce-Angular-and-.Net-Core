@@ -1,0 +1,143 @@
+@import "../../app.component.scss";
+.Title {
+    color: $black;
+    font-size: 2.5em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), lighten($soft-yellow, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+.sub-title {
+    color: $soft-black;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 900;
+        }
+    }
+    .title {
+        font-size: 36px;
+    }
+    .sub-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.8em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .sub-title {
+        font-size: 0.6em;
+    }
+}
+
+.makeItRight {
+    unicode-bidi: bidi-override !important;
+    // direction: rtl !important;
+    // text-align: right !important;
+    font-family: Cairo !important;
+}

@@ -1,0 +1,203 @@
+@import "../../app.component.scss";
+.Title {
+    color: $black;
+    font-size: 2.5em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), lighten($soft-yellow, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+
+/*********************** Category *******************/
+
+.box8 {
+    overflow: hidden;
+    position: relative;
+    text-align: center
+}
+
+.box8 img {
+    width: 100%;
+    height: 446.66px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1.5s ease 0s
+}
+
+.box8:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 0 3px rgba($black, 0.3);
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 500;
+    color: $black;
+}
+
+.box8 .box-content {
+    width: 100%;
+    height: 100%;
+    background: rgba($white, 0.3);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box8:hover .box-content {
+    opacity: 1;
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 900;
+        }
+    }
+    .title {
+        font-size: 38px;
+    }
+    .box8 img {
+        height: 819.66px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 307px;
+    }
+    .title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.8em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 225px;
+    }
+    .title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 230px;
+    }
+    .title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 175px;
+    }
+    .title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 150px;
+    }
+    .title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 150px;
+    }
+    .title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 125px;
+    }
+    .title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 105px;
+    }
+    .title {
+        font-size: 14px;
+    }
+}
+
+.makeItRight {
+    // unicode-bidi: bidi-override !important;
+    // direction: rtl !important;
+    // text-align: right !important;
+    font-family: Cairo !important;
+}

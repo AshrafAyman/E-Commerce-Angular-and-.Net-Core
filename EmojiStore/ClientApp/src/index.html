@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Emoji Store</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="./assets/img/logoTap.jpeg">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+</head>
+<!-- GetButton.io widget -->
+<script type="text/javascript">
+    (function() {
+        var options = {
+            facebook: "1744238905656969", // Facebook page ID
+            whatsapp: "+201067726283 ", // WhatsApp number
+            call_to_action: "", // Call to action
+            button_color: " #202020", // Color of button
+            position: "right", // Position may be 'right' or 'left'
+            order: "whatsapp,facebook", // Order of buttons
+        };
+        var proto = document.location.protocol,
+            host = "getbutton.io",
+            url = proto + "//static." + host;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function() {
+            WhWidgetSendButton.init(host, proto, options);
+        };
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<!-- /GetButton.io widget -->
+
+<body class="mat-typography">
+    <app-root>
+
+        <style>
+            app-root {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                color: #202020;
+                text-transform: uppercase;
+                font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica, sans-serif;
+                font-size: 2.5em;
+                font-weight: 500;
+                text-shadow: 2px 2px 10px rgba(#202020, 0.2);
+            }
+
+            body {
+                background: #F5F5F5;
+                margin: 0;
+                padding: 0;
+            }
+
+            @keyframes dots {
+                50% {
+                    transform: translateY(-.4rem);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            .d,
+            .d-2,
+            .d-3 {
+                color: #FFD100;
+            }
+
+            .d {
+                animation: dots 1.5s ease-out infinite;
+            }
+
+            .d-2 {
+                animation-delay: .5s;
+            }
+
+            .d-3 {
+                animation-delay: 1s;
+            }
+
+            @media (max-width: 280px) {
+                app-root {
+                    font-weight: 350;
+                }
+            }
+        </style>
+        <span>Emoji   Store</span>
+        <span class="d">.</span><span class="d d-2">.</span><span class="d d-3">.</span>
+    </app-root>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+@import'../../../app.component.scss';
+@import'../../user-bord-main/user-bord-main.component.scss';
+h4 {
+    padding-left: 1%;
+    font-family: Montserrat;
+    font-weight: 400;
+    border-left: 3px solid #1cc88a;
+    ;
+}
+
+.fas,
+.far {
+    color: #1cc88a;
+}
+
+.fa-save {
+    color: $white;
+}

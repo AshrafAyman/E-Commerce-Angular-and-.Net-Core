@@ -1,0 +1,277 @@
+@import "../app.component.scss";
+.Title {
+    color: $black;
+    font-size: 2.5em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), lighten($soft-yellow, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+//===============================================================
+i {
+    margin-right: 10px;
+}
+
+
+/*------------------------*/
+
+input:focus,
+button:focus,
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: none;
+    border-color: none;
+}
+
+:disabled {
+    background-color: none;
+    border-color: none;
+}
+
+.table tr,
+.table tr td {
+    vertical-align: middle;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container .form-control {
+    max-width: 80px;
+    text-align: center;
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+#myTable .form-control {
+    width: auto;
+    display: inline-block;
+}
+
+.cart-qty-plus,
+.cart-qty-minus {
+    width: 38px;
+    height: 38px;
+    background-color: $white;
+    border: 1px solid $grey;
+    border-radius: .25rem;
+}
+
+.cart-qty-plus:hover,
+.cart-qty-minus:hover {
+    background-color: $black;
+    color: $white;
+}
+
+.img-prdct {
+    width: 50px;
+    height: 60px;
+    background-color: $black;
+    border-radius: 4px;
+}
+
+.img-prdct img {
+    width: 100%;
+}
+
+.fa-trash {
+    color: $red;
+}
+
+p {
+    width: 90%;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $black;
+    --animation-duration: 5s;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cart {
+    background-color: $black;
+    color: $white;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 0px;
+    padding: 12px 88px;
+    float: right;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: lighten($color: $soft-yellow, $amount: 15);
+    border-color: $soft-black;
+}
+
+table,
+tr {
+    border: 2px solid;
+    border-color: $soft-black;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $soft-black;
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 900;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.8em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .cart {
+        font-size: 12px;
+        padding: 10px 50px;
+        float: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+//modal styling is here
+.end,
+.the-content {
+    background-color: transparent;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+}
+
+.the-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // left: -10%;
+    // right: 50%;
+    // margin-left: -150px;
+    margin-top: 350px;
+}
+
+.modal-img {
+    width: 800px;
+    height: 400px;
+    background: repeat;
+}
+
+.modal-title {
+    color: darken($color: $yellow, $amount: 25);
+    background-color: $white;
+    line-height: normal;
+    a {
+        text-decoration: underline;
+        text-underline-position: under;
+    }
+}
+
+.modal-body {
+    color: $black;
+    background-color: $white;
+}
+
+.end-btn {
+    border-radius: 0px;
+    color: $white;
+    background-color: $black;
+}
+
+.makeItRight4 {
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: Cairo !important;
+}

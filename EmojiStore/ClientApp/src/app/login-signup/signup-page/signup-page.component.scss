@@ -1,0 +1,99 @@
+@import "../../app.component.scss";
+.makeItRight {
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: Cairo !important;
+}
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba($black, 0.1);
+    overflow: hidden;
+}
+
+.card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: $black;
+}
+
+.card-signin .card-img-left {
+    width: 45%;
+    background: scroll center url('./../../../assets/img/login2.jpg');
+    background-size: cover;
+}
+
+.card-signin .card-body {
+    padding: 2rem;
+}
+
+.form-signin {
+    width: 100%;
+}
+
+.form-signin .btn {
+    font-size: 80%;
+    letter-spacing: .1rem;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+.form-label-group>label {
+    font-weight: 500;
+    color: $black;
+}
+
+.form-label-group input::placeholder {
+    color: $soft-black;
+}
+
+input:focus,
+textarea:focus {
+    border-color: $black;
+    box-shadow: 0 0 0 0.2rem rgba( $black, 0.15);
+}
+
+.btn-register {
+    font-size: small;
+    color: $white;
+    background-color: $black;
+    border-color: $black;
+}
+
+.btn-register:focus {
+    box-shadow: 0 0 0 0.2rem rgba( $black, 0.15);
+}
+
+.link {
+    text-decoration: none;
+    cursor: pointer;
+    color: darken($color: $soft-black, $amount: 9);
+}
+
+.icon-size {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-size2 {
+    margin-top: 1.7px;
+}
+
+.minimal {
+    border: 0px;
+    font-weight: 500;
+    color: $black;
+    background-color: $grey
+}
+
+.minimal:focus,
+.minimal:hover,
+.minimal:active {
+    border: 0px;
+    font-weight: 500;
+    color: $black;
+    background-color: $grey
+}

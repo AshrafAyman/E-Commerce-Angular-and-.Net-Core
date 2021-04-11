@@ -1,0 +1,161 @@
+@import "../../app.component.scss";
+.Title {
+    color: $black;
+    font-size: 2em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), lighten($soft-yellow, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+// =======================
+img {
+    width: 100%;
+    height: 846.66px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1.5s ease 0s
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 1446.66px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 846.66px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.6em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 616.66px;
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 1.5em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 616.66px;
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 1.3em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 616.66px;
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 1.3em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 540px;
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 1.3em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 540px;
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 1.2em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 460px;
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 1em;
+        .under-line {
+            font-weight: 600;
+        }
+    }
+    img {
+        height: 420px;
+    }
+}
+
+.makeItRight {
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: Cairo !important;
+}

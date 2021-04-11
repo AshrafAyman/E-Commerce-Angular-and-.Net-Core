@@ -1,0 +1,183 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Waiting Orders</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="datatable example" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                class="table table-bordered d-table row-border stripe hover" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="display: none;">Order Id</th>
+                        <th>Order No</th>
+                        <th>order Status Date</th>
+                        <th>Customer Name</th>
+                        <th>Customer Phone Number</th>
+                        <th>Customer Address</th>
+                        <th>order Total</th>
+                        <th>Order Details</th>
+                        <th class="dt-head-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let waitingOrder of waitingOrders">
+                        <td class="dt-body-left" style="display: none;">
+                            {{waitingOrder.orderId}}</td>
+                        <td class="dt-body-left" >{{waitingOrder.orderNo}}</td>
+                        <td class="dt-body-left" >{{waitingOrder.shortDate}}
+                        </td>
+                        <td class="dt-body-left" >
+                            {{waitingOrder.customerName}}
+                        </td>
+                        <td class="dt-body-left" >{{waitingOrder.phone}}
+                        </td>
+                        <td class="dt-body-left" >{{waitingOrder.address}}
+                        </td>
+                        <td class="dt-body-left" >{{waitingOrder.orderTotal}}
+                        </td>
+                        <td class="dt-body-left" >
+                            <ul>
+                                <li *ngFor="let orderDetail of waitingOrder.orderDetails"> {{orderDetail.productName}} (Size: {{orderDetail.size}})
+                                    price : {{orderDetail.price}} * {{orderDetail.qty}} = {{orderDetail.total}} L.E
+                                    <img src="{{orderDetail.imagePath}}" width="40" height="40">
+                                    </li>
+                            </ul>
+                        </td>
+                        
+                        <td class=" justify-content-center">
+                            <a type="button" (click)="AcceptOrder(waitingOrder.orderId)" placement="right"
+                                ngbTooltip="Accept"> <i class="fas fa-check-circle mr-2"></i></a>
+                            <a type="button" placement="left" data-toggle="modal" data-target="#exampleModal"
+                                ngbTooltip="Reject"> <i class="fas fa-times-circle mr-2"></i></a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Please Enter Your Reject
+                                                Reason</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="text" class="form-control" placeholder="Reject Reason"
+                                                id="rejectReason">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="button" (click)="RejectOrder(waitingOrder.orderId)"
+                                                data-dismiss="modal" class="btn btn-primary">Reject</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal -->
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Accepted Orders</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="datatable example" datatable [dtOptions]="dtOptions2" [dtTrigger]="dtTrigger2"
+                class="table table-bordered d-table row-border stripe hover" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="display: none;">Order Id</th>
+                        <th>Order No</th>
+                        <th>order Status Date</th>
+                        <th>Customer Name</th>
+                        <th>Customer Phone Number</th>
+                        <th>Customer Address</th>
+                        <th>Order Total</th>
+                        <th>Order Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let accepted of acceptedOrders">
+                        <td class="dt-body-left text-truncate" style="max-width: 250px; display: none;">
+                            {{accepted.orderId}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{accepted.orderNo}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{accepted.orderStateDate}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{accepted.customerName}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{accepted.phone}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{accepted.address}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{accepted.orderTotal}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 300px;">
+                            <ul>
+                                <li *ngFor="let acceptedOrderDetail of accepted.orderDetails">
+                                    {{acceptedOrderDetail.productName}} price : {{acceptedOrderDetail.price}} *
+                                    {{acceptedOrderDetail.qty}} = {{acceptedOrderDetail.total}} L.E</li>
+                            </ul>
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Rejected Orders</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="datatable example" datatable [dtOptions]="dtOptions3" [dtTrigger]="dtTrigger3"
+                class="table table-bordered d-table row-border stripe hover" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="display: none;">Order Id</th>
+                        <th>Order No</th>
+                        <th>order Status Date</th>
+                        <th>Customer Name</th>
+                        <th>Customer Phone Number</th>
+                        <th>Customer Address</th>
+                        <th>Order Total</th>
+                        <th>Order Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rejected of rejectedOrders">
+                        <td class="dt-body-left text-truncate" style="max-width: 250px; display: none;">
+                            {{rejected.orderId}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{rejected.orderNo}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{rejected.orderStateDate}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{rejected.customerName}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{rejected.phone}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: width auto; ">{{rejected.address}}
+                        </td>
+                        <td class="dt-body-left text-truncate" style="max-width: 250px;">{{rejected.orderTotal}}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 300px;">
+                            <ul>
+                                <li *ngFor="let rejectedOrderDetail of rejected.orderDetails">
+                                    {{rejectedOrderDetail.productName}} : price {{rejectedOrderDetail.price}} *
+                                    {{rejectedOrderDetail.qty}} = {{rejectedOrderDetail.total}} L.E</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

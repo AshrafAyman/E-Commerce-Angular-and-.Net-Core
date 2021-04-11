@@ -1,0 +1,135 @@
+<div id="alert" class="row justify-content-center align-items-center mt-3 arabicFont" style="display: none;">
+    <div class="alert alert-success text-center " style="width: 200px;"> {{ 'PRODUCT.INFO-12' | translate }}</div>
+</div>
+<div class="card m-1 m-xl-5 m-lg-5 m-md-3 m-sm-3 shadow arabicFont">
+    <div class="card-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-template *ngFor="let image of productImages let i= index" carouselSlide>
+                            <div class="slide">
+                                <img src="data:{{productImagesType[i]}};base64,{{image}}" alt="">
+                            </div>
+                        </ng-template>
+                    </owl-carousel-o>
+
+                </div>
+                <div class="col-md-6 px-lg-5 p-sm-0">
+                    <span id="productId" style="display: none;">{{product?.productId}}</span>
+                    <div class="size-block col-12 p-0 m-0 ">
+                        <h3 id="productName">{{product?.productName}}</h3>
+                    </div>
+                    <div class="col-12 p-0 m-0 mt-1  ">
+                        <span [ngStyle]="{'text-decoration': product?.inOffer? 'line-through' : 'none'}" class="price mr-3">{{product?.productPrice}} LE</span>
+                        <span *ngIf="product?.inOffer == true" class="offer "> {{product?.offerPrice}} LE</span>
+                    </div>
+                    <div *ngIf="sizeImageType !='' && sizeImage != null" class="col-12 p-0 m-0  mt-5">
+
+                        <span class="size ">{{ 'PRODUCT.INFO-1' | translate }}</span> <a href="" class="float-right mr-4 mt-2  size-chart" data-toggle="modal" data-target="#modal-show-page" placement="top" ngbTooltip="{{ 'PRODUCT.INFO-3' | translate }}">{{ 'PRODUCT.INFO-2' | translate }}</a><br>
+                        <div id="modal-show-page" class="modal fade align-self-center">
+                            <div class="modal-dialog the-dialog">
+
+                                <div class="modal-content the-content ">
+                                    <a href="#" class="close end" data-dismiss="modal" aria-label="Close ">
+                                        <span aria-hidden="true" class=" float-right mr-2 ">&times;</span>
+                                    </a>
+                                    <img src="data:{{sizeImageType}};base64,{{sizeImage}}" class="modal-img" alt="">
+
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+
+                    </div>
+                    <div id="checkboxes" class="size-block col-12 p-0 my-sm-auto mt-2 ">
+                        <div *ngFor="let size of sizes">
+                            <input type="radio" name="rGroup" class="rGroup" value="{{size.name}}" id="{{size.sizeId}}" />
+                            <label for="{{size.sizeId}}" class="the-size-box  col-lg-2 col-md-3   col-5 mr-3  mt-3 float-left text-center text-uppercase"> {{size.name}}</label>
+                        </div>
+                    </div>
+                    <div id="sizeValidation" class="text-danger" style="display: none;">
+                        Please Choose Product Size
+                    </div>
+                    <div class="size-block col-12 p-0 m-0 mt-4 ">
+                        <a (click)='AddToCart()' data-toggle="modal" data-target="#exampleCartModalCenter" class=" btn cart  toArabic"> <i class="bx bx-cart-alt"></i>{{ 'PRODUCT.INFO-10' | translate }}</a>
+                    </div>
+                    <div class="col-12 p-0 m-0 mt-1 ">
+                        <!-- Modal -->
+                        <div class="modal border-0 fade" id="exampleCartModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content  toArabic">
+                                    <div class="modal-header">
+                                    </div>
+
+                                    <div class="modal-body d-flex justify-content-center">
+                                        <button type="button " [routerLink]="['/Home/ShoppingCart']" class="btn m-auto end-btn" data-dismiss="modal">{{ 'PRODUCT.INFO-13' | translate }}</button>
+                                        <button type="button " class="btn m-auto end-btn" data-dismiss="modal">{{ 'PRODUCT.INFO-14' | translate }}</button>
+                                    </div>
+                                    <div class="modal-footer  toArabic">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 p-0 m-0 mt-1 ">
+                        <a href="" data-toggle="modal" data-target="#exampleModalCenter" class="wash-clothes" placement="bottom" ngbTooltip="{{ 'PRODUCT.INFO-4' | translate }}">{{ 'PRODUCT.INFO-4' | translate }} </a>
+                        <!-- Modal -->
+                        <div class="modal border-0 fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content  toArabic">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">{{product?.washingTitle}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{ product?.washingDescription}}
+
+                                    </div>
+                                    <div class="modal-footer  toArabic">
+                                        <button type="button " class="btn  end-btn" data-dismiss="modal">{{ 'PRODUCT.INFO-7' | translate }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-6 mt-1">
+                    <div id="accordion" class="accordion  ">
+                        <div class="card border-0 mb-0">
+                            <div class="card-header collapsed " data-toggle="collapse" href="#collapseOne">
+                                <a class="card-title">
+                                  {{ 'PRODUCT.INFO-8' | translate }}
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="card-body collapse" data-parent="#accordion">
+                                <p>{{product?.description}} </p>
+                            </div>
+                            <div class="card-header collapsed " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <a class="card-title">
+                                  {{ 'PRODUCT.INFO-9' | translate }}
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                                <p>
+                                    {{ 'CART.INFO-11' | translate }} {{product?.shippingValue}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- </div> -->

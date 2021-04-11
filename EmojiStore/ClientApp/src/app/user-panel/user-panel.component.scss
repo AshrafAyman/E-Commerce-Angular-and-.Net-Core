@@ -1,0 +1,28 @@
+@import "../app.component.scss";
+.scroll-to-top {
+    position: fixed;
+    z-index: 2000;
+    right: 6rem;
+    bottom: 1.5rem;
+    display: none;
+    width: 2.65rem;
+    height: 2.65rem;
+    text-align: center;
+    color: $white;
+    background: $black;
+    line-height: 46px;
+}
+
+.scroll-to-top:focus,
+.scroll-to-top:hover {
+    color: $white;
+}
+
+.scroll-to-top:hover {
+    background: rgba($black, 0.5);
+}
+
+.scroll-to-top i {
+    color: $white;
+    font-weight: 800;
+}

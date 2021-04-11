@@ -1,0 +1,29 @@
+@import'../../../app.component.scss';
+@import'../../admin-main/admin-main.component.scss';
+h4 {
+    padding-left: 1%;
+    font-family: Montserrat;
+    font-weight: 400;
+    border-left: 3px solid #4e73df;
+    ;
+}
+
+thead {
+    color: #4e73df;
+}
+
+.fas {
+    color: #4e73df;
+}
+
+.fa-trash {
+    color: #e74a3b;
+}
+
+.fa-edit {
+    color: #1cc88a;
+}
+
+textarea {
+    resize: none;
+}

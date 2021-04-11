@@ -1,0 +1,67 @@
+/* Importing Bootstrap SCSS file. */
+
+@import './app/app.component.scss';
+@import '~bootstrap/scss/bootstrap';
+// fonts imports
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
+@import '~animate.css/animate.min';
+// icon material
+html,
+body {
+    height: 100%;
+    background-image: url('./assets/img/s-pg.svg');
+    background-repeat: repeat repeat-x repeat-y;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Montserrat;
+}
+
+.q8c6tt-2,
+.jxPOhn {
+    display: none;
+}
+
+
+/* Scroll Style */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 12px;
+    // height: 20px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: darken($color: $grey, $amount: 5);
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: $soft-black;
+    // border-radius: 3px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: $black;
+}
+
+::-webkit-scrollbar-corner {
+    background: darken($color: $grey, $amount: 5);
+}
+
+::-webkit-scrollbar-button {
+    background: darken($color: $grey, $amount: 5);
+}

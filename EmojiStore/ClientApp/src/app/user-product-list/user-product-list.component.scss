@@ -1,0 +1,471 @@
+@import "../app.component.scss";
+.Title {
+    color: $black;
+    font-size: 2.5em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), lighten($soft-yellow, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+
+/*********************** product list  *******************/
+
+.box8 {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.box8 img {
+    width: 100%;
+    height: 322px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1.5s ease 0s
+}
+
+.box8:hover img {
+    transform: scale(1);
+    box-shadow: 0 0 3px rgba($black, 0.3);
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 500;
+    color: $black;
+}
+
+.box8 .box-content {
+    width: 100%;
+    height: 100%;
+    background: rgba($white, 0.88);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box8:hover .box-content {
+    opacity: 1;
+}
+
+.title-web {
+    position: flex;
+    margin: auto;
+    margin-top: 50%;
+    font-size: 20px;
+    color: $black;
+    padding: 5px 7px;
+    font-weight: 500;
+}
+
+.title-sub-web {
+    font-size: 18px;
+    color: darken($color: $yellow, $amount: 9);
+    font-weight: 300;
+}
+
+.title-sub-web-real {
+    font-size: 18px;
+    color: darken($color: $red, $amount: 9);
+    font-weight: 300;
+}
+
+.title-sub {
+    font-size: 20px;
+    color: darken($color: $yellow, $amount: 9);
+    font-weight: 300;
+}
+
+.title-sub-real {
+    font-size: 20px;
+    color: darken($color: $red, $amount: 9);
+    font-weight: 300;
+}
+
+.product-item__badge {
+    z-index: 5;
+    position: absolute;
+    top: -26px;
+    right: -94px;
+    width: 220px;
+    padding: 50px 5px 5px;
+    text-align: center;
+    background-color: $red;
+    color: $white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transform: rotate(45deg) translateZ(0);
+}
+
+
+/***************************dropdown styling *******************************/
+
+.btn-outline-black {
+    color: $black;
+    border-color: $black;
+    font-weight: 500;
+}
+
+.btn-outline-black:focus {
+    box-shadow: 0 0 0 0.2rem rgba($black, 0.5);
+}
+
+.btn-outline-black:hover {
+    color: $white;
+    background-color: $black;
+    box-shadow: 0 0 0 0.2rem rgba($black, 0.5);
+}
+
+#pagination {
+    margin: auto !important;
+    ;
+}
+
+
+/***************************pagination styling *******************************/
+
+.my-pagination {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+.my-pagination::ng-deep ul.ngx-pagination {
+    margin-inline-end: 0px !important;
+    padding-inline-start: 0px !important;
+}
+
+.my-pagination::ng-deep .ngx-pagination .current {
+    background: darken($color: $yellow, $amount: 20);
+    border-radius: 1px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.my-pagination::ng-deep .ngx-pagination a:hover,
+.ngx-pagination button:hover {
+    background: $grey;
+    border-radius: 1px;
+    padding-left: 9px;
+    padding-right: 9px;
+    text-decoration: none;
+}
+
+.my-pagination::ng-deep .ngx-pagination a:focus,
+.ngx-pagination button:focus {
+    outline: none;
+    background: $grey;
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 900;
+        }
+    }
+    .box8 img {
+        height: 602px;
+    }
+    .title {
+        font-size: 38px;
+    }
+    .title-sub {
+        font-size: 30px;
+    }
+    .title-sub-real {
+        font-size: 30px;
+    }
+    .product-item__badge {
+        position: absolute;
+        top: -20px;
+        right: -100px;
+        width: 280px;
+        padding: 60px 15px 15px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 2em;
+        font-weight: 700;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 210px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .title-sub {
+        font-size: 14px;
+    }
+    .title-sub-real {
+        font-size: 14px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.8em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 195px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .title-sub {
+        font-size: 14px;
+    }
+    .title-sub-real {
+        font-size: 14px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 210px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .title-sub {
+        font-size: 14px;
+    }
+    .title-sub-real {
+        font-size: 14px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 160px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .title-sub {
+        font-size: 14px;
+    }
+    .title-sub-real {
+        font-size: 14px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 140px;
+    }
+    .title {
+        font-size: 14px;
+    }
+    .title-sub {
+        font-size: 12px;
+    }
+    .title-sub-real {
+        font-size: 12px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 135px;
+    }
+    .title {
+        font-size: 14px;
+    }
+    .title-sub {
+        font-size: 12px;
+    }
+    .title-sub-real {
+        font-size: 12px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 115px;
+    }
+    .title {
+        font-size: 14px;
+    }
+    .title-sub {
+        font-size: 12px;
+    }
+    .title-sub-real {
+        font-size: 12px;
+    }
+    .product-item__badge {
+        top: -26px;
+        right: -94px;
+        width: 200px;
+        padding: 40px 4px 4px;
+        text-align: center;
+        background-color: $red;
+        color: $white;
+        font-size: 0.9em;
+        font-weight: 600;
+        transform: rotate(45deg) translateZ(0);
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+    .box8 img {
+        height: 95px;
+    }
+    .title {
+        font-size: 14px;
+    }
+    .title-sub {
+        font-size: 12px;
+    }
+    .title-sub-real {
+        font-size: 12px;
+    }
+    .product-item__badge {
+        position: absolute;
+        top: -30px;
+        right: -98px;
+        width: 200px;
+        padding: 40px 2.5px 2.5px;
+        text-align: center;
+        font-weight: 500;
+    }
+}
+
+.makeItRight {
+    unicode-bidi: bidi-override !important;
+    // direction: rtl !important;
+    // text-align: right !important;
+    font-family: Cairo !important;
+}

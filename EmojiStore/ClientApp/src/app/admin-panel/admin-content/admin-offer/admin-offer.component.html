@@ -1,0 +1,74 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-2 pt-3">
+        <h4 class="h4  text-gray-800">Offer</h4>
+    </div>
+    <div class="card-body">
+        <form class="needs-validation" [formGroup]="offerForm" novalidate>
+            <div class="form-row">
+                <div class="input-group mb-3 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fa fas fa-shopping-bag"
+          aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" name="productName" id="productName" class="form-control" placeholder="Product Name..." disabled>
+
+                </div>
+                <div class="input-group mb-3 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fas fa-dollar-sign"></i></span>
+                    </div>
+                    <input type="number" name="productPrice" id="productPrice" class="form-control" placeholder="product Price..." disabled>
+
+                </div>
+                <div class="input-group mb-3 col-12 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fas fas fa-user-tag"
+          aria-hidden="true"></i></span>
+                    </div>
+                    <input type="number" name="offerPrice" id="offerPrice" formControlName="offerPrice" class="form-control" placeholder="Offer Price...">
+                </div>
+                <div *ngIf="offerPrice.invalid && (offerPrice.dirty || offerPrice.touched)" class="text-danger  ml-2">
+                    Please provide a Offer Price.
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="offerForm.invalid" (click)="saveAfterEditProduct()" class="btn btn-primary btn-md btn-block" id="edit"> <i class="fas fa-save fa-fw mr-2"></i>Edit</button>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Offer's</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="datatable example" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered d-table row-border stripe hover" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="dt-head-left">Name</th>
+                        <th class="dt-head-left">Price</th>
+                        <th class="dt-head-left">Offer Price</th>
+                        <!-- <th>categoryName</th> -->
+                        <th class="dt-head-left">Description</th>
+                        <th class="dt-head-right">Actions </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="products?.length != 0">
+                    <tr *ngFor="let products of products">
+                        <td class="dt-body-left text-truncate" style="max-width: 100px;">{{ products.productName }}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 70px;">{{ products.productPrice }}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 70px;">{{ products.offerPrice }}</td>
+                        <td class="dt-body-left text-truncate" style="max-width: 150px;">{{ products.description }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a type="button" (click)="deleteProduct(products.productId)" class=" " placement="left" ngbTooltip="Remove"> <i class="fas fa-trash fa-fw mr-2"></i></a>
+                            <a type="button" (click)="setOffer(products)" class=" " placement="right" ngbTooltip="offer"> <i class="fas fa-tags fa-fw mr-2"></i></a>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

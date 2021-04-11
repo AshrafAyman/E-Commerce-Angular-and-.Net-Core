@@ -1,0 +1,159 @@
+<body #target class="arabicFont">
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion " [class.toggled]="check" #accordionSidebar id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/Home">
+                <div class="sidebar-brand-icon mt-1 ">
+                    <img src="../../../assets/img/logo2.svg" alt="" width="80px" height="60px">
+                </div>
+
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link toArabic" routerLink="/Home" routerLinkActive="active-link">
+                    <i class="far fa-fw fa-home"></i>
+                    <span> {{ 'USER-MAIN.INFO-1' | translate }}</span></a>
+            </li>
+
+
+
+            <!-- Heading -->
+
+
+            <!-- Heading -->
+            <div class="sidebar-heading toArabic">
+                <i class="far fa-fw fa-folder-open"></i>{{ 'USER-MAIN.INFO-2' | translate }}
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item ">
+                <a class="nav-link toArabic" routerLink="/User/Profile" routerLinkActive="active-link">
+                    <i class=" fa-fw far fa-user"></i>
+                    <span>{{ 'USER-MAIN.INFO-3' | translate }} </span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link toArabic" routerLink="/User/MyOrder" routerLinkActive="active-link">
+                    <i class="far fa-fw fa-shopping-bag"></i>
+                    <span>{{ 'USER-MAIN.INFO-4' | translate }}</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" (click)="sideBarToggle()" id="sidebarToggle"><i class="far fa-fw fa-angle-left" [class.fa-angle-right]="selected" style="color:#f8f9fc;"></i></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" (click)="sideBarToggle()" class="btn  btn-success d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                  </button>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link toArabic">
+                                <label for="langSelect" class="mr-1">   <img class="icon-size"  [src]="imgSelect">{{ 'HEADER.SELECT' | translate }}</label>
+                                <select class="minimal" #langSelect (change)="changeLang(langSelect.value)">
+                  <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+                </select>
+                            </a>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle toArabic" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ 'USER-MAIN.INFO-5' | translate }}  {{userName}}</span>
+                                <img class="img-profile rounded-circle" src="../../../assets/img/user.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown dropdown-menu dropdown-menu-right shadow animated--grow-in" id="dropdown" aria-labelledby="userDropdown">
+                                <a class="dropdown-item toArabic" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>{{ 'USER-MAIN.INFO-6' | translate }}
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item toArabic" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{ 'USER-MAIN.INFO-7' | translate }}
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <app-user-bord-content></app-user-bord-content>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>{{ 'USER-MAIN.INFO-8' | translate }}{{ 'USER-MAIN.INFO-9' | translate }} </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded " (click)="scrollToElement(target)">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title toArabic" id="exampleModalLabel">{{ 'USER-MAIN.INFO-10' | translate }}</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+                </div>
+                <div class="modal-body toArabic">{{ 'USER-MAIN.INFO-11' | translate }}</div>
+                <div class="modal-footer toArabic">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ 'USER-MAIN.INFO-12' | translate }}</button>
+                    <a class="btn btn-success" data-dismiss="modal" routerLink="/Registration/Login" routerLinkActive="active-link">{{ 'USER-MAIN.INFO-13' | translate }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

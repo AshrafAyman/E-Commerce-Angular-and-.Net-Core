@@ -1,0 +1,50 @@
+<section class="p-0 m-0">
+    <div class="container-fluid mt-5 toArabic">
+        <div class="col-12 card-title  mt-1 text-center my-5 Title " data-aos="fade-up" data-aos-duration="1000"> <span class="under-line"> {{categoryName}}
+      </span> </div>
+        <div class="row m-0 p-0">
+            <div ngbDropdown class="d-inline-block mx-auto mb-4">
+                <button class="btn btn-outline-black" id="dropdownBasic1" ngbDropdownToggle>{{ 'PRODUCT-LIST.INFO-9' | translate
+          }}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button (click)="changeFilter(1)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-1' | translate }}</button>
+                    <button (click)="changeFilter(2)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-2' | translate }}</button>
+                    <button (click)="changeFilter(3)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-3' | translate }}</button>
+                    <button (click)="changeFilter(4)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-4' | translate }}</button>
+                    <button (click)="changeFilter(5)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-5' | translate }}</button>
+                    <button (click)="changeFilter(6)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-6' | translate }}</button>
+                    <button (click)="changeFilter(7)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-7' | translate }}</button>
+                    <button (click)="changeFilter(8)" ngbDropdownItem>{{ 'PRODUCT-LIST.INFO-8' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        <div class=" row p-0 m-0">
+            <div class="col-12  p-0 m-0 mb-5">
+                <div *ngFor="let product of products | paginate:{itemsPerPage: 16, currentPage:pageNumber,totalItems: count }" class="col-md-3 col-6 mt-md-1 mt-sm-1 my-auto  float-left " data-aos="fade-up" data-aos-duration="1000">
+                    <div class="mb-5">
+                        <div [routerLink]="['/Home/Product', product.productId]" class="box8 ">
+
+                            <img src="data:{{product.types[0]}};base64,{{product.productImageList[0]}}">
+                            <span *ngIf="product.inOffer == true" class="product-item__badge">Sale</span>
+                            <div class="box-content">
+                                <h3 class="title-web d-none d-lg-block">{{product.productName}}</h3>
+                                <span [ngStyle]="{'text-decoration': product.inOffer? 'line-through' : 'none'}" class="title-sub-web d-none d-lg-block my-auto">{{product.productPrice}}LE</span>
+                                <span *ngIf="product.inOffer == true" class="title-sub-web-real d-none d-lg-block my-auto ">Now
+                  {{product.offerPrice}} LE </span>
+
+                            </div>
+                        </div>
+                        <h3 class="text-left title mt-3  d-block  d-lg-none">{{product.productName}}</h3>
+                        <span [ngStyle]="{'text-decoration': product.inOffer? 'line-through' : 'none'}" class="title-sub d-block  d-lg-none my-auto float-left mr-2">{{product.productPrice}}LE</span>
+                        <span *ngIf="product.inOffer == true" class="title-sub-real d-block  d-lg-none my-auto float-left ">Now
+              {{product.offerPrice}} LE </span>
+                    </div>
+                </div>
+            </div>
+            <div id="pagination" class="col-12  p-0 m-0  text-center ">
+                <pagination-controls (pageChange)="changePage($event)" class="my-pagination"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</section>

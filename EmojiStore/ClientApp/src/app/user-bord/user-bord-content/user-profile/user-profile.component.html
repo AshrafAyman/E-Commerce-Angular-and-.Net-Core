@@ -1,0 +1,71 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-2 pt-3">
+    <h4 class="h4  text-gray-800">My Profile</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="userProfileGroup">
+      <div class="form-row">
+        <div class="m-0 p-0 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fa far fa-user"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="text" id="inputUserame" class="form-control" formControlName="firstName"
+              placeholder="{{ 'SIGN-UP.INFO-3' | translate }} " required maxlength="15" autofocus>
+          </div>
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger mt-2">{{
+            'SIGN-UP.INFO-4' | translate }}</div>
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fas fa-envelope"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="email" id="Email" class="form-control" placeholder="{{ 'SIGN-UP.INFO-9' | translate }}"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          </div>
+        </div>
+        <div class="m-0 p-0 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fa far fa-user"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="text" id="inputUserame2" class="form-control" formControlName="lastName"
+              placeholder="{{ 'SIGN-UP.INFO-6' | translate }}" required maxlength="15">
+          </div>
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger mt-2">{{
+            'SIGN-UP.INFO-7' | translate }}</div>
+
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-phone-alt"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="text" id="inputPhone" class="form-control" formControlName="phone"
+              placeholder="{{ 'SIGN-UP.INFO-17' | translate }}" maxlength="20" required>
+          </div>
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-18' |
+            translate }}</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-group mb-3 col-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+          </div>
+          <textarea type="textarea" id="Address" class="form-control" placeholder="{{ 'SIGN-UP.INFO-20' | translate }}"
+            resize rows="5"></textarea>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-success btn-md btn-block " id="submit" [disabled]="userProfileGroup.invalid"
+        (click)="userProfile()">
+        <i class="fas fa-save fa-fw mr-2"></i>{{ 'USER-MAIN.INFO-15' | translate }}
+      </button>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+@import "../app.component.scss";
+* {
+    font-weight: 450;
+}
+
+.new_footer_area {
+    background: $white;
+}
+
+.new_footer_top {
+    padding: 80px 0px 15px;
+    border-top: 3px solid $soft-black;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.new_footer_area .footer_bottom {
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.footer_bottom {
+    font-size: 14px;
+    font-weight: 300;
+    color: $soft-black;
+    padding: 5px 0px;
+}
+
+.new_footer_top .company_widget p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    color: $soft-black;
+}
+
+.new_footer_top .company_widget .f_subscribe_two .btn_get {
+    border-width: 1px;
+    margin-top: 20px;
+}
+
+a:hover,
+a:focus,
+.btn:hover,
+.btn:focus,
+button:hover,
+button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.new_footer_top .f_widget.about-widget .f_list li a:hover {
+    color: darken($color: $soft-black, $amount: 35%);
+}
+
+.new_footer_top .f_widget.about-widget .f_list li {
+    margin-bottom: 11px;
+}
+
+.f_widget.about-widget .f_list li:last-child {
+    margin-bottom: 0px;
+}
+
+.f_widget.about-widget .f_list li {
+    margin-bottom: 15px;
+}
+
+.f_widget.about-widget .f_list {
+    margin-bottom: 0px;
+}
+
+.btn_get_two {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: $black;
+    border-color: $black;
+    color: $white;
+}
+
+.btn_get_two:hover {
+    background: transparent;
+    color: $black;
+}
+
+.new_footer_top .f-title {
+    margin-bottom: 30px;
+    color: $black;
+}
+
+.f_600 {
+    font-weight: 600;
+}
+
+.f_size_18 {
+    font-size: 18px;
+}
+
+.new_footer_top .f_widget.about-widget .f_list li a {
+    color: $soft-black;
+}
+
+.icon-size {
+    width: 38px;
+    height: 38px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+@media (min-width: 2560px) {
+    .footer_bottom {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .new_footer_top .company_widget p {
+        font-size: 22px;
+        font-weight: 400;
+    }
+    .f_size_18 {
+        font-size: 26px;
+    }
+    a {
+        font-size: 22px;
+    }
+    .icon-size {
+        width: 62px;
+        height: 62px;
+        margin-left: 12px;
+    }
+}
+
+.form-control:focus {
+    border-color: $black;
+    box-shadow: 0 0 0 0.25rem rgba($black, 0.10);
+}
+
+
+/*************footer End*****************/
+
+.makeItRight {
+    // unicode-bidi: bidi-override !important;
+    // direction: rtl !important;
+    // text-align: right !important;
+    font-family: Cairo !important;
+}
+
+// .makeItRight2 {
+//     text-align: right;
+//     padding-inline-start: 0px;
+// }

@@ -1,0 +1,131 @@
+@import "../app.component.scss";
+* {
+    font-family: Montserrat;
+}
+
+.h-sizing {
+    font-size: 70px;
+    color: $black;
+    line-height: 1.4;
+}
+
+.h-sizing2 {
+    font-size: 30px;
+    color: darken($color: $soft-yellow, $amount: 25);
+    line-height: 1.4;
+}
+
+.btn {
+    font-weight: 500;
+    border-color: $black;
+    border-width: 2px;
+    color: $black;
+    &:hover {
+        border-color: darken($color: $soft-yellow, $amount: 25);
+        border-width: 2px;
+        background-color: darken($color: $soft-yellow, $amount: 25);
+        color: $white;
+    }
+}
+
+@media (min-width: 2560px) {
+    .h-sizing {
+        font-size: 70px;
+    }
+    .h-sizing2 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .h-sizing {
+        font-size: 50px;
+    }
+    .h-sizing2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .h-sizing {
+        font-size: 50px;
+    }
+    .h-sizing2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 540px) {
+    img {
+        padding-left: 100px;
+    }
+    .h-sizing {
+        font-size: 60px;
+    }
+    .h-sizing2 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 414px) {
+    .h-sizing {
+        font-size: 50px;
+        line-height: 1.8;
+    }
+    .h-sizing2 {
+        font-size: 30px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 320px) {
+    .h-sizing {
+        font-size: 40px;
+        line-height: 1;
+    }
+    .h-sizing2 {
+        font-size: 24px;
+        line-height: 1;
+    }
+}
+
+@media (max-width: 280px) {
+    .h-sizing {
+        font-size: 40px;
+    }
+    .h-sizing2 {
+        font-size: 24px;
+    }
+}
+
+.icon-size {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-size2 {
+    margin-top: 1.7px;
+}
+
+.minimal {
+    border: 0px;
+    font-weight: 500;
+    color: $black;
+    background-color: $grey
+}
+
+.minimal:focus,
+.minimal:hover,
+.minimal:active {
+    border: 0px;
+    font-weight: 500;
+    color: $black;
+    background-color: $grey
+}
+
+.makeItRight4 {
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: Cairo !important;
+}

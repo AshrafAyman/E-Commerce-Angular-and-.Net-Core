@@ -1,0 +1,256 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-2 pt-3">
+    <h4 class="h4  text-gray-800">Products</h4>
+  </div>
+  <div class="card-body">
+    <form class="needs-validation" [formGroup]="productForm">
+      <div class="form-row ">
+        <div class="m-0 p-0 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fa fas fa-shopping-bag"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="text" name="productFormName" formControlName="productFormName" class="form-control"
+              placeholder="Product Name..." id="productName">
+          </div>
+          <div *ngIf="productFormName.invalid && (productFormName.dirty || productFormName.touched)"
+            class="text-danger ml-2">
+            Please add name
+          </div>
+
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fas fa-dollar-sign"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="number" name="productFormPrice" formControlName="productFormPrice" class="form-control"
+              placeholder="product Price..." id="productPrice">
+
+          </div>
+          <div *ngIf="productFormPrice.invalid && (productFormPrice.dirty || productFormPrice.touched)"
+            class="text-danger ml-2">
+            Please add price
+          </div>
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="wash-dropdown"><i class="fas fa-truck" aria-hidden="true"></i></label>
+            </div>
+            <select class="custom-select " id="ship-dropdown" name="productFormShipping"
+              formControlName="productFormShipping">
+              <option class="dropdown-item" disabled selected value="">Choose Shipping Type...
+              </option>
+              <option *ngFor="let ship of shipping" value="{{ship.id}}">{{ship.name}}</option>
+            </select>
+          </div>
+          <div *ngIf="productFormShipping.invalid && (productFormShipping.dirty || productFormShipping.touched)"
+            class="text-danger mt-2">
+            Please select shipping
+          </div>
+        </div>
+        <div class="m-0 p-0 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"> <i class="fas fas fa-calculator"
+                  aria-hidden="true"></i></span>
+            </div>
+            <input type="number" name="productFormQuantity" formControlName="productFormQuantity" class="form-control"
+              placeholder="product Quantity..." id="productQuantity">
+
+          </div>
+          <div *ngIf="productFormQuantity.invalid && (productFormQuantity.dirty || productFormQuantity.touched)"
+            class="text-danger ml-2">
+            Please add quantity
+          </div>
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-folder"
+                  aria-hidden="true"></i></label>
+            </div>
+            <select (change)='onCategorySelect($event)' formControlName="productFormCategory" class="custom-select "
+              id="productCategory" name="productFormCategory">
+              <option class="dropdown-item" disabled selected value="">Choose Category...</option>
+
+              <option *ngFor="let category of categories" value="{{category.categoryId}}">
+                {{category.categoryName}}</option>
+            </select>
+
+          </div>
+          <div *ngIf="productFormCategory.invalid && (productFormCategory.dirty || productFormCategory.touched)"
+            class="text-danger ml-2">
+            Please select category
+          </div>
+
+          <div class="input-group mb-3 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="wash-dropdown"><i class="fas fa-tshirt" aria-hidden="true"></i></label>
+            </div>
+            <select class="custom-select " id="wash-dropdown" name="productFormWashing"
+              formControlName="productFormWashing">
+              <option class="dropdown-item" disabled selected value="">Choose Washing Type...
+              </option>
+              <option *ngFor="let wash of washing" value="{{wash.id}}">{{wash.title}}</option>
+            </select>
+          </div>
+          <div *ngIf="productFormWashing.invalid && (productFormWashing.dirty || productFormWashing.touched)"
+            class="text-danger mt-2">
+            Please select washing type
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="input-group mb-3 col-12  ">
+          <select class="custom-select js-example-basic-multiple" name="productFormSizes" id="size-dropdown"
+            multiple="multiple">
+            <option *ngFor="let size of sizes" value="{{size.sizeId}}">{{size.name}}</option>
+          </select>
+
+        </div>
+      </div>
+
+
+
+      <div class="form-row">
+
+        <div class="input-group mb-3 col-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-audio-description" aria-hidden="true"></i></span>
+          </div>
+          <textarea class="form-control" id="productDesc" name="productFormDesc" formControlName="productFormDesc"
+            placeholder="Description Here..." rows="4" cols="24" resize="none"></textarea>
+          <div *ngIf="productFormDesc.invalid && (productFormDesc.dirty || productFormDesc.touched)"
+            class="text-danger mt-2">
+            Please provide a Description.
+          </div>
+        </div>
+      </div>
+      <div class="form-row mb-3 ">
+        <div class="input-group   col-12 mt-1 d-flex justify-content-center">
+          <div class="file-input">
+            <input type="file" name="productFormPhotos" #file (change)="handleFileInput($event.target.files)" multiple
+              accept="image/*" id="file-input" required class="file-input__input" />
+            <label class="file-input__label" for="file-input">
+
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload"
+                class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path fill="currentColor"
+                  d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z">
+                </path>
+              </svg>
+              <span>Product Image</span></label>
+          </div>
+        </div>
+        <div id="productImageValidation" style="display: none;" class="text-danger">
+          Please provide product image
+        </div>
+        <div class="col-12 float-right ">
+          <div *ngFor="let url of image;  let i = index"
+            class="border col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left ">
+            <div>
+              <div class="col2 float-left">
+                <img class="img float-left p-2 " src="data:{{imagesTypes[i]}};base64,{{url}}" alt=""
+                  style="width:60px;height:60px;">
+
+              </div>
+              <div class="col2 float-left   ">
+                <span class="float-left ml-1 mt-3 text-truncate" style="max-width: 150px;">{{imageName}}</span>
+              </div>
+              <div class="col2 float-right">
+                <a type="button" class="float-right mt-3  " (click)="deleteImage(i)"> <i
+                    class="fas fa-trash fa-fw mr-2"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="separator my-4">Size Chart Image</div>
+
+      <div class="form-row mb-3 ">
+        <div class="input-group   col-12 mt-1 d-flex justify-content-center">
+          <div class="file-input">
+            <input type="file" name="productSizePhotos" (change)="handleFileInputSizeImage($event.target.files)"
+              accept="image/*" id="size-input" class="file-input__input" />
+            <label class="file-input__label" for="size-input">
+
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload"
+                class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path fill="currentColor"
+                  d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z">
+                </path>
+              </svg>
+              <span>Upload Image</span></label>
+
+          </div>
+
+        </div>
+
+        <div class="col-12 float-right " id="sizeChartImageContainer" style="display: none;">
+          <div class="border col-12 col-sm-12  float-left ">
+            <div>
+              <div class="col2 float-left">
+                <img class="img float-left p-2" src="data:{{imageType}};base64,{{imageUrl}}" id="sizeImageChart" alt=""
+                  style="width:60px;height:60px;">
+              </div>
+              <div class="col2 float-left">
+                <span class="float-left ml-1 mt-3 text-truncate" id="imgName"
+                  style="max-width: 150px;">{{sizeImageName}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ImageBase46"></div>
+      <button type="submit" [disabled]="productForm.invalid" (click)="saveProduct()"
+        class="btn btn-primary btn-md btn-block " id="save"> <i class="fas fa-save fa-fw mr-2"></i> Save </button>
+      <button type="submit" style="display: none;" (click)="saveAfterEditProduct()"
+        class="btn btn-primary btn-md btn-block" id="edit"> <i class="fas fa-save fa-fw mr-2"></i>Edit</button>
+
+
+    </form>
+  </div>
+
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Product</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table id="datatable example" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+          class="table table-bordered d-table row-border stripe hover" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="dt-head-left">Name</th>
+              <th class="dt-head-left">Price</th>
+              <th class="dt-head-left">Quantity</th>
+              <!-- <th>categoryName</th> -->
+              <th class="dt-head-left">Description</th>
+              <th class="dt-head-right">Actions </th>
+            </tr>
+          </thead>
+          <tbody *ngIf="products?.length != 0">
+            <tr *ngFor="let products of products">
+              <td class="dt-body-left text-truncate" style="max-width: 100px;">{{ products.productName }}</td>
+              <td class="dt-body-left text-truncate" style="max-width: 70px;">{{ products.productPrice }}</td>
+              <td class="dt-body-left text-truncate" style="max-width: 70px;">{{ products.qty }}</td>
+              <!-- <td>{{ category.categoryName }}</td> -->
+              <td class="dt-body-left text-truncate" style="max-width: 150px;">{{ products.description }}</td>
+              <td class="d-flex justify-content-center">
+                <a type="button" (click)="deleteProduct(products.productId)" class=" " placement="left"
+                  ngbTooltip="Remove"> <i class="fas fa-trash fa-fw mr-2"></i></a>
+                <a type="button" (click)="editProduct(products)" class=" " placement="right" ngbTooltip="Edit"> <i
+                    class="fas fa-edit fa-fw mr-2"></i></a>
+                <!-- (click)="editProduct(products)" -->
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

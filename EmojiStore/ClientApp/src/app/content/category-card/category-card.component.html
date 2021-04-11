@@ -1,0 +1,16 @@
+<div class="container-fluid mt-5">
+  <div class="col-12 card-title  mt-1 text-center my-5 Title toArabic" data-aos="fade-up" data-aos-duration="100"> <span
+      class="under-line"> {{ 'HOME-CATEGORY.INFO-1' | translate }}
+    </span> </div>
+  <div class="row mt-4 toArabic forArabic">
+    <div *ngFor="let category of categories" [routerLink]="['/Home/ProductList', category.categoryId]"
+      class="col-md-4 col-6 mt-md-1 mt-sm-1  " data-aos="fade-up" data-aos-duration="1000">
+      <div class="box8">
+        <img src="{{category.imagePath}}">
+        <div class="box-content">
+        </div>
+      </div>
+      <h3 class="text-left title mt-3 "> {{category.categoryName}}</h3>
+    </div>
+  </div>
+</div>

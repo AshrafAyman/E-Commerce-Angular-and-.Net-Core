@@ -1,0 +1,30 @@
+<main>
+    <div class="container arabicFont ">
+
+        <label for="langSelect" class="mr-1">   <img class="icon-size"  [src]="imgSelect">{{ 'HEADER.SELECT' | translate }}</label>
+        <select class="minimal" #langSelect (change)="changeLang(langSelect.value)">
+    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+  </select>
+        <div class="row align-items-center" style="height: 600px;">
+
+            <!-- Image -->
+            <div class="col-md-6 pl-3">
+                <img src="../../assets/img/pagenotfound.png" class="img-fluid" width="400" alt="404 error">
+            </div>
+            <!-- /col-md-6 -->
+
+            <!-- Text -->
+            <div class="col-md-6 pl-3">
+                <h2 class="h-sizing">{{ 'NOTFOUND.INFO-1' | translate }}</h2>
+                <h2 class="h-sizing2">{{ 'NOTFOUND.INFO-2' | translate }}</h2>
+                <div class="py-4">
+                    <a routerLink="/Home" routerLinkActive="active" class="btn animate__animated animate__pulse"><i class='bx bx-home bx-fw'></i>{{ 'NOTFOUND.INFO-3' | translate }} </a>
+                </div>
+            </div>
+            <!-- /col-md-6 -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</main>

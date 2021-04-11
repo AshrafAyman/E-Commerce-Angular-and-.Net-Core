@@ -1,0 +1,140 @@
+@import'../../../app.component.scss';
+@import'../../user-bord-main/user-bord-main.component.scss';
+h5 {
+    padding-left: 1%;
+    font-family: Montserrat;
+    font-weight: 400;
+    border-left: 3px solid #1cc88a;
+    ;
+}
+
+.fas,
+.far {
+    color: #1cc88a;
+}
+
+.fa-save {
+    color: $white;
+}
+
+.Title {
+    color: $black;
+    font-size: 2.5em;
+    .under-line {
+        font-weight: 800;
+        color: $black;
+        background-image: linear-gradient( transparent calc(75% - 5px), darken(#1cc88a, 5%) 5px, );
+        background-size: 0;
+        background-repeat: no-repeat;
+        display: inline;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        .under-line {
+            background-size: 100%;
+        }
+    }
+}
+
+
+/*********************** product list  *******************/
+
+
+/***************************dropdown styling *******************************/
+
+.btn-outline-black {
+    color: $black;
+    border-color: $black;
+    font-weight: 500;
+}
+
+.btn-outline-black:focus {
+    box-shadow: 0 0 0 0.2rem rgba($black, 0.5);
+}
+
+.btn-outline-black:hover {
+    color: $white;
+    background-color: $black;
+    box-shadow: 0 0 0 0.2rem rgba($black, 0.5);
+}
+
+@media (min-width: 2560px) {
+    .Title {
+        font-size: 3.4em;
+        .under-line {
+            font-weight: 900;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .Title {
+        font-size: 2.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 1.8em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 280px) {
+    .Title {
+        font-size: 1.4em;
+        .under-line {
+            font-weight: 800;
+        }
+    }
+}

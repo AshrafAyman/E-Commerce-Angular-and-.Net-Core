@@ -1,0 +1,129 @@
+<div class="container-fluid mt-5  arabicFont" dir="{{ 'HEADER.DIR' | translate }}">
+    <div class="col-12 card-title  mt-1 text-center my-5 Title" data-aos="fade-up" data-aos-duration="1000"> <span
+            class="under-line">{{ 'CART.INFO-1' | translate }}
+        </span> </div>
+    <div class="row  justify-content-center ">
+        <div class="col-10 ">
+            <div class=" table table-responsive table-striped  table-hover ">
+                <table id="myTable" class="table">
+                    <thead align="center">
+                        <tr>
+                            <th align="center">{{ 'CART.INFO-2' | translate }}</th>
+                            <th align="center">{{ 'CART.INFO-3' | translate }}</th>
+                            <th align="center">{{ 'CART.INFO-4' | translate }}</th>
+                            <th align="center">{{ 'CART.INFO-12' | translate }}</th>
+                            <th align="center">{{ 'CART.INFO-5' | translate }}</th>
+                            <th align="center">{{ 'CART.INFO-6' | translate }}</th>
+                            <th align="center"><span id="amount" class="amount">{{ 'CART.INFO-7' | translate }}</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody align="center">
+                        <tr align="center" *ngIf="products?.length == 0">
+                            <td align="center" colspan="7" class="">
+                                <span>{{ 'CART.INFO-13' | translate }}</span>
+                            </td>
+
+                        </tr>
+                        <tr *ngFor="let product of products" align="center">
+                            <td align="center">
+                                <div class="product-img">
+                                    <div class="img-prdct"><img
+                                            src="data:{{product.productPhotoType}};base64,{{product.productPhoto}}">
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <p>{{product.productName}}</p>
+                            </td>
+                            <td align="center">
+                                <div class="button-container m-auto">
+                                    <button (click)="IncrementQuantity(product.id)" class="cart-qty-plus m-auto"
+                                        type="button" value="+">+</button>
+                                    <div id="quantity{{product.id}}" class="m-auto">{{product.quantity}}</div>
+                                    <button (click)="DecrementQuantity(product.id)" class="cart-qty-minus m-auto"
+                                        type="button" value="-">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span>{{product.size}}</span>
+                            </td>
+                            <td>
+                                <span>{{product.productPrice}}</span>
+                            </td>
+                            <td align="center">
+                                <a type="button" (click)="DeleteFromCart(product.id)" placement="left"
+                                    ngbTooltip="{{ 'CART.INFO-6' | translate }}"> <i
+                                        class="fas fa-trash fa-fw mr-2"></i></a>
+
+                            </td>
+                            <td align="center">LE <span id="amount" class="amount">{{product.total}}</span></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td align="left"><strong>{{ 'CART.INFO-8' | translate }}</strong></td>
+                            <td colspan="5">
+
+                                <p>{{ 'CART.INFO-11' | translate }} {{shippingValue}}</p>
+                            </td>
+                            <td align="right"><strong> {{ 'CART.INFO-9' | translate }} = LE <span id="total"
+                                        class="total">{{total}}</span></strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class=" p-0 m-0 mt-3 ">
+                <button href="" (click)="CheckOut()" class=" btn cart">{{ 'CART.INFO-10' | translate }} </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 my-auto arabicFont">
+    <!-- <a href="" data-toggle="modal" data-target="#exampleModalCenter" class="wash-clothes">jhjhjhjhj </a> -->
+    <!-- Modal -->
+    <div class="modal border-0 fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content  toArabic">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'CART.INFO-14' |translate }}
+                        <a routerLink="/Registration/Login">{{ 'CART.INFO-19' |translate }} </a>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> </button>
+                </div>
+                <form [formGroup]="anonymousRegisterUser">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" id="userName" class="form-control" formControlName="userName"
+                                placeholder="{{ 'CART.INFO-15' | translate }}" aria-label="Username"
+                                aria-describedby="addon-wrapping"><br>
+                                <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-4' | translate }}</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" id="phone" class="form-control" formControlName="phone"
+                                placeholder="{{ 'CART.INFO-16' | translate }}" aria-label="Username"
+                                aria-describedby="addon-wrapping"><br>
+                                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger mt-2">{{ 'LOGIN.INFO-7' | translate }}</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" id="address" class="form-control" formControlName="address"
+                                placeholder="{{ 'CART.INFO-17' | translate }}" aria-label="Username"
+                                aria-describedby="addon-wrapping"><br>
+                                <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger mt-2">{{ 'SIGN-UP.INFO-20' | translate }}</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer  toArabic">
+                        <button type="button" [disabled]="anonymousRegisterUser.invalid" (click)="CheckOutWithoutLogin()" class="btn  end-btn"
+                            data-dismiss="modal">{{
+                            'CART.INFO-18' | translate }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="modal-footer  toArabic">
+            <button type="button " class="btn  end-btn" data-dismiss="modal">{{ 'PRODUCT.INFO-7' | translate }}</button>
+        </div> -->
+    </div>
+</div>

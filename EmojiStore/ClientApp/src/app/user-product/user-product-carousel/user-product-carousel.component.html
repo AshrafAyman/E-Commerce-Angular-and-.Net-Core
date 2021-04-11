@@ -1,0 +1,28 @@
+<div class="card m-1 m-xl-5 m-lg-5 m-md-3 m-sm-3 shadow">
+    <div class="col-12 card-title mb-1 mt-1 text-center my-5 Title" data-aos="fade-up" data-aos-duration="3000"> <span class="under-line arabicFont">{{ 'PRODUCT.INFO-11' | translate }}</span> </div>
+
+    <div class="card-body">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template *ngFor="let product of products" carouselSlide>
+                <div class="slide">
+                    <div [routerLink]="['/Home/Product', product.productId]" class="box8 ">
+                        <img src="data:{{product.types[0]}};base64,{{product.productImageList[0]}}">
+                        <span *ngIf="product.inOffer == true" class="product-item__badge ">Sale</span>
+                        <div class="box-content">
+                            <h3 class="title-web d-none d-lg-block">{{product.productName}}</h3>
+                            <span [ngStyle]="{'text-decoration': product.inOffer? 'line-through' : 'none'}" class="title-sub-web d-none d-lg-block my-auto">{{product.productPrice}} LE</span>
+                            <span *ngIf="product.inOffer == true" class="title-sub-web-real d-none d-lg-block my-auto ">Now {{product.offerPrice}} LE </span>
+
+                        </div>
+                    </div>
+                    <div class="box8-bottom">
+                        <h3 class="text-left title mt-3  d-block  d-lg-none">{{product.productName}}</h3>
+                        <span [ngStyle]="{'text-decoration': product.inOffer? 'line-through' : 'none'}" class="title-sub d-block  d-lg-none my-auto float-left mr-2">{{product.productPrice}} LE</span>
+                        <span *ngIf="product.inOffer == true" class="title-sub-real d-block  d-lg-none my-auto float-left ">Now {{product.offerPrice}} LE</span>
+                    </div>
+                </div>
+            </ng-template>
+
+        </owl-carousel-o>
+    </div>
+</div>

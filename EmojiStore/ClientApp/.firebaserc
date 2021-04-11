@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "emoji-168c7": {
+      "hosting": {
+        "gold-v2": [
+          "emoji-168c7"
+        ]
+      }
+    }
+  }
+}
